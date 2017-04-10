@@ -1,0 +1,7 @@
+{
+	"extends": "angular",
+
+	"plugins": [
+		"angular"
+	]
+}
