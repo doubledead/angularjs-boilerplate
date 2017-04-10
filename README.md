@@ -1,5 +1,4 @@
 # AngularJS-Boilerplate
-This is an AngularJS 1.x base app written in ES5. Based off [Google Web Starter Kit](https://github.com/google/web-starter-kit) and the modular design of [angular-seed](https://github.com/angular/angular-seed).
 
 Features:
 
