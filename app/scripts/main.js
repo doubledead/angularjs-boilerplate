@@ -31,4 +31,4 @@ angular.module('boilerplateApp', [
 
   //$locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('!');
-}])
+}]);
