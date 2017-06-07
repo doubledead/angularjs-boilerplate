@@ -1,6 +1,7 @@
 'use strict';
 
 // AngularJS main app initialization
+// Declare app level module which depends on views, and components
 angular.module('boilerplateApp', [
   'ngRoute',
   'ngAnimate',

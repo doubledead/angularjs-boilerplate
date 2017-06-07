@@ -1,5 +1,7 @@
 # AngularJS-Boilerplate
 
+The structure pulls from [Web Starter Kit](https://developers.google.com/web/tools/starter-kit/) and [angular-seed](https://github.com/angular/angular-seed).
+
 Features:
 
 - AngularJS 1.x

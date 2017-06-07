@@ -122,8 +122,8 @@ gulp.task('scripts', function () {
     // Note: Since we are not using useref in the scripts build pipeline,
     //       you need to explicitly list your scripts here in the right order
     //       to be correctly concatenated
+    './app/scripts/app.js',
     './app/scripts/templates.js',
-    './app/scripts/main.js',
     './app/scripts/controllers/controllers.js',
     './app/scripts/services/service.js'
   ])
@@ -131,7 +131,7 @@ gulp.task('scripts', function () {
     .pipe($.sourcemaps.init())
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/scripts'))
-    .pipe($.concat('main.min.js'))
+    .pipe($.concat('app.min.js'))
     .pipe($.uglify({preserveComments: 'some'}))
     // Output files
     .pipe($.size({title: 'scripts'}))
@@ -165,7 +165,10 @@ gulp.task('jslibs', function () {
 });
 
 gulp.task('templates', function () {
-  return gulp.src('app/templates/**/*.html')
+  return gulp.src([
+    'app/templates/**/*.html',
+    'app/templates/***/**/*.html'
+  ])
     .pipe(templateCache({standalone: true}))
     .pipe($.size({title: 'templates'}))
     .pipe(gulp.dest('app/scripts'));
@@ -220,7 +223,10 @@ gulp.task('serve', ['templates', 'scripts', 'jslibs', 'styles'], function () {
     port: 3000
   });
   gulp.watch(['app/index.html'], reload);
-  gulp.watch(['app/templates/**/*.html'], ['templates', reload]);
+  gulp.watch([
+    'app/templates/**/*.html',
+    'app/templates/***/**/*.html'
+  ], ['templates', reload]);
   // gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['scripts', reload]);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
