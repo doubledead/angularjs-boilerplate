@@ -132,6 +132,7 @@ gulp.task('scripts', function () {
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe($.concat('app.min.js'))
+    .pipe($.ngAnnotate())
     .pipe($.uglify({preserveComments: 'some'}))
     // Output files
     .pipe($.size({title: 'scripts'}))
